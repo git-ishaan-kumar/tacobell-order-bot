@@ -15,7 +15,7 @@ A simulation of a chat bot that takes Taco Bell orders. Users can add, remove, a
 ![Taco Bell Order Bot Screenshot](./static/cover.png)
 
 ## Video Demo
-[![Pooja Room Demo](https://img.shields.io/badge/YouTube-Watch_Demo-FF0000?logo=youtube&style=for-the-badge)](https://youtube.com)
+[![Pooja Room Demo](https://img.shields.io/badge/YouTube-Watch_Demo-FF0000?logo=youtube&style=for-the-badge)](https://youtu.be/vuFtQ1dv88o)
 
 ---
 
