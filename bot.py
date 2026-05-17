@@ -79,17 +79,20 @@ def get_response(chat_context, model="gemini-3.1-flash-lite", temperature=0.1, m
                 )
             )
 
-    api_response = client.models.generate_content(
-        model=model,
-        contents=formatted_contents,
-        config=types.GenerateContentConfig(
-            temperature=temperature,
-            max_output_tokens=max_tokens,
-            system_instruction=system_instruction
+    try:
+        api_response = client.models.generate_content(
+            model=model,
+            contents=formatted_contents,
+            config=types.GenerateContentConfig(
+                temperature=temperature,
+                max_output_tokens=max_tokens,
+                system_instruction=system_instruction
+            )
         )
-    )
-
-    return api_response.text
+        return api_response.text
+        
+    except APIError as e:
+        return f"*(System Message: Google's servers are currently too busy. Please try sending your message again in a few seconds! Error: {e.status_code})*"
 
 def bot_response(chat_context, user_input):
     """
