@@ -44,14 +44,14 @@ st.header("💬 Order Bot")
 for msg in st.session_state.ui_messages:
     avatar = "🌮" if msg["role"] == "assistant" else "👤"
     with st.chat_message(msg["role"], avatar=avatar):
-        st.write(msg["content"])
+        st.write(msg["content"].replace("$", r"\$"))
 
 # Bot Response
 if st.session_state.ui_messages[-1]["role"] == "user" and st.session_state.cart is None and not limit_exceeded:
     with st.chat_message("assistant", avatar="🌮"):
         with st.spinner("Thinking..."):
             response, cart = bot.bot_response(st.session_state.chat_history, st.session_state.ui_messages[-1]["content"])
-            st.write(response)
+            st.write(response.replace("$", r"\$"))
     st.session_state.ui_messages.append({"role": "assistant", "content": response})
     if cart:
         st.session_state.cart = cart
